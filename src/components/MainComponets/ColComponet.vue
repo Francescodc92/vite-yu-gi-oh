@@ -8,7 +8,7 @@ export default{
 
 <template>
 
-  <div class="col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 flex-grow-1 d-flex flex-column" >
+  <div class="ms-card col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 flex-grow-1 d-flex flex-column" >
     <div class="ms-img-wrapper text-center">
       <img :src="currentCard.card_images[0].image_url" :alt="currentCard.name">
     </div>
@@ -25,17 +25,24 @@ export default{
   background-color: #212529;
 }
 
-.ms-img-wrapper{
-  img{
-    height: 100%;
-    width:100%;
-    object-fit: fill;
-  }
-}
 
-.ms-text{
-  background-color: #D48F38;
-  font-size: .875rem;
+.ms-card{
+  cursor:pointer;
+  .ms-img-wrapper{
+    img{
+      height: 100%;
+      width:100%;
+      object-fit: fill;
+      transition: transform 200ms ease-in-out;
+    }
+  }
+  &:hover .ms-img-wrapper img{
+    transform: scale(1.3);
+  }
+  .ms-text{
+    background-color: #D48F38;
+    font-size: .875rem;
+  }
 }
     
 </style>
