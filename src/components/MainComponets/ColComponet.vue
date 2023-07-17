@@ -1,23 +1,20 @@
 <script>
-import { store } from '../../store';
 export default{
-data(){
-  return {
-    store
+  props:{
+    currentCard:Object
   }
-}
 }
 </script>
 
 <template>
 
-  <div class="col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 flex-column " v-for="(card, index) in store.cardsArray" :key="index">
+  <div class="col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 flex-grow-1 d-flex flex-column" >
     <div class="ms-img-wrapper text-center">
-      <img :src="card.card_images[0].image_url" :alt="card.name">
+      <img :src="currentCard.card_images[0].image_url" :alt="currentCard.name">
     </div>
-    <div class="ms-text text-white text-center fw-bold text-uppercase py-1 px-1">
-      {{ card.name }}
-      <p class="text-dark fw-normal mt-1">{{ card.archetype }}</p>
+    <div class="ms-text text-white text-center fw-bold text-uppercase py-1 px-1 flex-grow-1">
+      {{ currentCard.name }}
+      <p class="text-dark fw-normal mt-1">{{ currentCard.archetype }}</p>
     </div>
   </div>
 
@@ -29,7 +26,6 @@ data(){
 }
 
 .ms-img-wrapper{
-  height:70%;
   img{
     height: 100%;
     width:100%;
@@ -38,7 +34,6 @@ data(){
 }
 
 .ms-text{
-  height: 30%;
   background-color: #D48F38;
   font-size: .875rem;
 }
