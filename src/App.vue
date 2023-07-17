@@ -1,20 +1,30 @@
 <script>
   import HeaderComponet from './components/HeaderComponets/HeaderComponet.vue';
   import MainComponet from './components/MainComponets/MainComponet.vue';
-  import FooterComponet from './components/FooterComponets/FooterComponet.vue';
+  import axios from 'axios'
+
   export default{
+    data(){
+      return {
+        cardsArray:[]
+      }
+    },
+    created(){
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
+        .then( res => {
+          this.cardsArray = res.data.data
+        })
+    },
     components:{
       HeaderComponet,
       MainComponet,
-      FooterComponet
     }
   }
 </script>
 
 <template>
   <HeaderComponet/>
-  <MainComponet/>
-  <FooterComponet/>
+  <MainComponet :cardsArray="cardsArray"/>
 </template>
 
 <style lang="scss">
