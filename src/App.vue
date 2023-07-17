@@ -1,19 +1,19 @@
 <script>
   import HeaderComponet from './components/HeaderComponets/HeaderComponet.vue';
   import MainComponet from './components/MainComponets/MainComponet.vue';
-  import axios from 'axios'
+  import { store } from './store.js';
+  import axios from 'axios';
 
   export default{
     data(){
       return {
-        numberRequest:50,
-        cardsArray:[]
+        store
       }
     },
     created(){
-      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=${this.numberRequest}&offset=0`)
+      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=${this.store.numberRequest}&offset=0`)
         .then( res => {
-          this.cardsArray = res.data.data
+          this.store.cardsArray = res.data.data
         })
     },
     components:{
@@ -25,7 +25,7 @@
 
 <template>
   <HeaderComponet/>
-  <MainComponet :cardsArray="cardsArray" :numberRequest="numberRequest"/>
+  <MainComponet/>
 </template>
 
 <style lang="scss">

@@ -1,18 +1,17 @@
 <script>
+import { store } from '../../store';
 export default{
-
-  props:{
-    cardsArray:{
-      type:Array,
-      default:[],
-    }
+data(){
+  return {
+    store
   }
+}
 }
 </script>
 
 <template>
 
-  <div class="col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 flex-column " v-for="(card, index) in cardsArray" :key="index">
+  <div class="col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 flex-column " v-for="(card, index) in store.cardsArray" :key="index">
     <div class="ms-img-wrapper text-center">
       <img :src="card.card_images[0].image_url" :alt="card.name">
     </div>

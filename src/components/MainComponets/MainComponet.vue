@@ -1,19 +1,15 @@
 <script>
 import ColComponet from './ColComponet.vue';
+import { store } from '../../store.js'
 export default{
+  data(){
+    return {
+      store
+    }
+  },
   components:{
     ColComponet
   },
-  props:{
-    cardsArray:{
-      type:Array,
-      default:[],
-    },
-    numberRequest:{
-      type:Number,
-      default:0,
-    }
-  }
 }
 </script>
 <template>
@@ -26,10 +22,10 @@ export default{
     </div>
     <div class="ms-main-bottom h-100 p-4">
       <div class="ms-header-cards">
-        <p class="text-white py-3 px-2 mb-1">Found <span>{{ cardsArray.length }}</span> cards</p>
+        <p class="text-white py-3 px-2 mb-1">Found <span>{{ store.cardsArray.length }}</span> cards</p>
       </div>
-      <div class="ms-cards row align-items-stretch justify-content-lg-between row-gap-4" v-if="cardsArray.length == numberRequest">
-        <ColComponet :cardsArray="cardsArray"/>
+      <div class="ms-cards row align-items-stretch justify-content-lg-between row-gap-4" v-if="store.cardsArray.length == store.numberRequest">
+        <ColComponet/>
       </div>
       <div class="text-center mt-5" v-else>
         <div class="spinner-border text-primary " role="status">
