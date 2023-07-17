@@ -8,6 +8,10 @@ export default{
     cardsArray:{
       type:Array,
       default:[],
+    },
+    numberRequest:{
+      type:Number,
+      default:0,
     }
   }
 }
@@ -24,8 +28,13 @@ export default{
       <div class="ms-header-cards">
         <p class="text-white py-3 px-2 mb-1">Found <span>{{ cardsArray.length }}</span> cards</p>
       </div>
-      <div class="ms-cards row align-items-stretch justify-content-lg-between row-gap-4">
+      <div class="ms-cards row align-items-stretch justify-content-lg-between row-gap-4" v-if="cardsArray.length == numberRequest">
         <ColComponet :cardsArray="cardsArray"/>
+      </div>
+      <div class="text-center mt-5" v-else>
+        <div class="spinner-border text-primary " role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     </div>
   </div>
