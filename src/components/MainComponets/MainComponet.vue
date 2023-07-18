@@ -36,7 +36,7 @@ export default{
       <div class="ms-header-cards">
         <p class="text-white py-3 px-2 mb-1">Found <span>{{ store.cardsArray.length }}</span> cards</p>
       </div>
-      <div class="ms-cards row justify-content-lg-between row-gap-4" v-if="store.cardsArray.length == store.numberRequest">
+      <div class="ms-cards row row-gap-4" v-if="store.cardsArray.length == store.numberRequest">
         <ColComponet v-for="(card, index) in store.cardsArray" :key="index" :currentCard="card"/>
       </div>
       <div class="text-center mt-5" v-else>
