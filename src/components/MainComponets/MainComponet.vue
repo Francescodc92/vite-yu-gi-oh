@@ -50,7 +50,9 @@ export default{
  </main>
 </template>
 <style lang="scss" scoped>
+ @use "../../assets/scss/partials/variables.scss" as *;
 main {
+  min-height: calc(100vh - $header-height);
   background-color: #D48F38;
   .form-select{
     max-width: 150px;

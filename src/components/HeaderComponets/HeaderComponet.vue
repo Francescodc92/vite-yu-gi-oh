@@ -6,7 +6,7 @@ export default{
 
 <template>
  <header>
-  <div class="container-fluid d-flex gap-2 py-3">
+  <div class="container-fluid d-flex gap-2">
     <div class="img-wrapper">
       <img src="../../assets/img/logo.png" alt="logo yu-gi-ho">
     </div>
@@ -17,7 +17,11 @@ export default{
 
 
 <style lang="scss" scoped>
+@use "../../assets/scss/partials/variables.scss" as *;
 header{
+  height: $header-height;
+  display: flex;
+  align-items: center;
   background-color: #F6F6F6;
   .img-wrapper{
     width: 70px;
