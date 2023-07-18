@@ -2,7 +2,7 @@
 
 ![preview](./.github/preview.png)
 
-## Vite Yu-Gi-Oh
+## Vite Yu-Gi-Oh giorno 1
 
 DESCRIZIONE:
   - Create un nuovo progetto utilizzando Vite e Vue 3 e definite i componenti necessari per strutturare il layout come da screenshot allegato.
@@ -18,6 +18,21 @@ CONSIGLI:
 
 DOCUMENTAZIONI:
   -  https://ygoprodeck.com/api-guide/
+## Vite Yu-Gi-Oh giorno 2
+
+DESCRIZIONE:
+  - Continuate a lavorare nella stessa repo di ieri e aggiungete una select per filtrare i risultati in base all'archetipo. allegato.
+
+  - Le option della select devono essere popolate dinamicamente chiamando questo endpoint dell'api:https://db.ygoprodeck.com/api/v7/archetypes.php
+  
+  - Quando l'utente seleziona un valore dalla lista, viene effettuata una chiamata alle API con l'archetipo selezionato
+
+BONUS
+  - Creare un componente che mostri il numero totale di risultati ottenuti.
+
+CONSIGLI:
+  - Per capire come comunicare alle API le carte dell'archetipo che volete, è necessario fare riferimento alla documentazione che trovate qui: https://ygoprodeck.com/api-guide/
+
 
 ## Tecnologie
 

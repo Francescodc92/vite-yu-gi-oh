@@ -16,8 +16,20 @@ export default{
  <main>
   <div class="container">
     <div class="ms-main-top py-3 px-2">
-      <select class="form-select " aria-label="Default select example">
-        <option selected>Alien</option>
+      
+      <select 
+        class="form-select " 
+        aria-label="Default select example"
+        v-model="store.archetypeSelected"
+        @change="$emit('selected')"
+      >
+        <option value="" selected>All</option>
+        <option 
+          v-for="(archetype, index) in store.archetypeArray" :key="index"
+          :value="archetype.archetype_name"
+        >
+            {{ archetype.archetype_name }}
+        </option>
       </select>
     </div>
     <div class="ms-main-bottom h-100 p-4">

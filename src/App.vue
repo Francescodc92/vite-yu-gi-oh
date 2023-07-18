@@ -10,12 +10,33 @@
         store
       }
     },
-    created(){
-      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=${this.store.numberRequest}&offset=0`)
+     methods:{
+      cangeSelectOption(){
+        axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=1000&offset=0`, {
+          params:{
+            archetype: this.store.archetypeSelected || null
+          }
+        })
         .then( res => {
           this.store.cardsArray = res.data.data
+          this.store.numberRequest = res.data.data.length
         })
+        .catch(error => {
+          this.store.cardsArray = []
+        });
+      }
     },
+    created(){
+      this.cangeSelectOption()
+
+      axios.get(`https://db.ygoprodeck.com/api/v7/archetypes.php`)
+        .then( res => {
+          this.store.archetypeArray = res.data
+        });
+
+      
+    },
+   
     components:{
       HeaderComponet,
       MainComponet,
@@ -25,7 +46,7 @@
 
 <template>
   <HeaderComponet/>
-  <MainComponet/>
+  <MainComponet @selected="cangeSelectOption()"/>
 </template>
 
 <style lang="scss">

@@ -8,7 +8,7 @@ export default{
 
 <template>
 
-  <div class="ms-card col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 flex-grow-1 d-flex flex-column" >
+  <div class="ms-card col-sm-4 col-md-3 col-lg-2 mx-lg-1 mt-0 d-flex flex-column" >
     <div class="ms-img-wrapper text-center">
       <img :src="currentCard.card_images[0].image_url" :alt="currentCard.name">
     </div>
